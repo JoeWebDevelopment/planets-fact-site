@@ -351,11 +351,26 @@ input[type="radio"]{
 
 
 
-[data-view="structure"], [data-view="surface"]{
+.planet-details{
     display: none;
 }
 
 .tabs-container > label:has(input:focus-visible) {
   outline: 2px solid var(--clr-white);
   outline-offset: 3px;
+}
+
+.planet-info-card:has(#overview:checked)
+  [data-view="overview"] {
+  display: block;
+}
+
+.planet-info-card:has(#surface:checked)
+  [data-view="surface"] {
+  display: block;
+}
+
+.planet-info-card:has(#structure:checked)
+  [data-view="structure"] {
+  display: block;
 }
