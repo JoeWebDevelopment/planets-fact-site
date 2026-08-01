@@ -111,14 +111,17 @@ body {
     font-size: 28px;
 }
 
+
+
 .header-container{
     
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-inline: 1rem;
+    padding: var(--spacing-300, 24px) var(--spacing-400, 32px);
     align-items: center;
-    padding-block-start: 1.5rem;
+    width: 100%;
+    align-self: center;
 }
 
 .nav-links{
@@ -128,17 +131,69 @@ body {
     font-family: var(--ff-body);
     font-size: 11px;
     font-weight: 700;
-    line-height: 225%; /* 24.75px */
+    line-height: 225%; 
     letter-spacing: 1px;
     font-style: normal;
-    letter-spacing: 1px;
     text-transform: uppercase;
 }
+
+.nav-link-item[data-planet="mercury"] {
+  --link-accent: var(--clr-sky);
+}
+
+.nav-link-item[data-planet="venus"] {
+  --link-accent: var(--clr-amber);
+}
+
+.nav-link-item[data-planet="earth"] {
+  --link-accent: var(--clr-purple);
+}
+
+.nav-link-item[data-planet="mars"] {
+  --link-accent: var(--clr-orange);
+}
+
+.nav-link-item[data-planet="jupiter"] {
+  --link-accent: var(--clr-red);
+}
+
+.nav-link-item[data-planet="saturn"] {
+  --link-accent: var(--clr-bronze);
+}
+
+.nav-link-item[data-planet="uranus"] {
+  --link-accent: var(--clr-teal);
+}
+.nav-link-item[data-planet="neptune"] {
+  --link-accent: var(--clr-blue);
+}
+
+
+
 
 
 .nav-link-item{
     list-style-type: none;
+    position: relative;
 }
+
+
+
+.nav-link-item::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: -34px;
+  height: 4px;
+  background-color:  var(--link-accent);
+  transform: scaleX(0);
+}
+
+.nav-link-item:has(> .nav-link:hover)::before,
+.nav-link-item:has(> .nav-link:focus-visible)::before {
+  transform: scaleX(1);
+}
+
 a {
     text-decoration: none;
   }
@@ -220,14 +275,14 @@ label > span{
 
 
 
-.tabs-container > label:has(input):hover,
+
 .tabs-container > label:has(input:checked) {
   background-size: 100% 100%;
 }
 
 label:has(input){
   /* Creates a flat colored background using gradient syntax */
-  background-image: linear-gradient(var(--clr-sky), var(--clr-sky));
+  background-image: linear-gradient(var(--planet-accent), var(--planet-accent));
   background-repeat: no-repeat;
   height: 48px;
     width: 350px;
@@ -243,9 +298,7 @@ label:has(input):hover{
   background-size: 100% 100%;
 }
 
-label:has(input:checked){
-    
-}
+
 
 .source{
     display: flex;
@@ -374,3 +427,37 @@ input[type="radio"]{
   [data-view="structure"] {
   display: block;
 }
+
+
+body[data-planet="mercury"] {
+  --planet-accent: var(--clr-sky);
+}
+
+body[data-planet="venus"] {
+  --planet-accent: var(--clr-amber);
+}
+
+body[data-planet="earth"] {
+  --planet-accent: var(--clr-purple);
+}
+
+body[data-planet="mars"] {
+  --planet-accent: var(--clr-orange);
+}
+
+body[data-planet="jupiter"] {
+  --planet-accent: var(--clr-red);
+}
+
+body[data-planet="saturn"] {
+  --planet-accent: var(--clr-bronze);
+}
+
+body[data-planet="uranus"] {
+  --planet-accent: var(--clr-teal);
+}
+
+body[data-planet="neptune"] {
+  --planet-accent: var(--clr-blue);
+}
+
