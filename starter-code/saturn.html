@@ -12,25 +12,30 @@
 <header class="header">
   <div class="header-container">
     <p class="page-title">THE PLANETS</p>
+    <input type="checkbox" class="menu-toggle" name="menu" id="menu-toggle">
+    <label for="menu-toggle" class="menu-button">
+      <span class="visually-hidden">Toggle navigation menu</span>
+      <img src="assets/icon-hamburger.svg" alt="" class="burger-menu-icon">
+    </label>
     <nav>
       
-      <ul class="nav-links">
+      <ul class="nav-links primary-navigation">
         <li class="nav-link-item" data-planet="mercury">
-          <a href="index.html" class="nav-link">Mercury</a></li>
+          <a href="index.html" class="nav-link">Mercury</a><img src="assets/icon-chevron.svg" alt="" class="chevron"></li>
         <li class="nav-link-item" data-planet="venus">
-          <a href="venus.html" class="nav-link">Venus</a></li>
+          <a href="venus.html" class="nav-link">Venus</a><img src="assets/icon-chevron.svg" alt="" class="chevron"></li>
         <li class="nav-link-item" data-planet="earth">
-          <a href="earth.html" class="nav-link">Earth</a></li>
+          <a href="earth.html" class="nav-link">Earth</a><img src="assets/icon-chevron.svg" alt="" class="chevron"></li>
         <li class="nav-link-item" data-planet="mars">
-          <a href="mars.html" class="nav-link">Mars</a></li>
+          <a href="mars.html" class="nav-link">Mars</a><img src="assets/icon-chevron.svg" alt="" class="chevron"></li>
         <li class="nav-link-item" data-planet="jupiter">
-          <a  href="jupiter.html" class="nav-link">Jupiter</a></li>
+          <a  href="jupiter.html" class="nav-link">Jupiter</a><img src="assets/icon-chevron.svg" alt="" class="chevron"></li>
         <li class="nav-link-item" data-planet="saturn">
-          <a  href="saturn.html" class="nav-link">Saturn</a></li>
+          <a  href="saturn.html" class="nav-link">Saturn</a><img src="assets/icon-chevron.svg" alt="" class="chevron"></li>
         <li class="nav-link-item" data-planet="uranus">
-          <a  href="uranus.html"  class="nav-link">Uranus</a></li>
+          <a  href="uranus.html"  class="nav-link">Uranus</a><img src="assets/icon-chevron.svg" alt="" class="chevron"></li>
         <li class="nav-link-item" data-planet="neptune">
-          <a  href="neptune.html"   class="nav-link">Neptune</a></li>
+          <a  href="neptune.html"   class="nav-link">Neptune</a><img src="assets/icon-chevron.svg" alt="" class="chevron"></li>
       </ul>
     </nav>
   </div>
@@ -39,6 +44,12 @@
 
   <main>
     <div class="planet-info-container">
+      <fieldset class="mobile-tabs-container">
+        <legend>Planet Details Controls</legend>
+        <label for="mobile-overview"><input type="radio" name="mobile-planet-details" id="mobile-overview" value="mobile-overview" checked>Overview</label>
+        <label for="mobile-structure"><input type="radio" name="mobile-planet-details" id="mobile-structure" value="mobile-structure">Structure</label>
+        <label for="mobile-surface"><input type="radio" name="mobile-planet-details" id="mobile-surface" value="mobile-surface">Surface</label>
+      </fieldset>
       <div class="planet-info two-column">
         <div class="planet-image">
           <img src="assets/planet-saturn.svg" alt="" data-image="overview">

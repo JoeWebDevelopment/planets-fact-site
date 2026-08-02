@@ -185,7 +185,7 @@ body {
   content: "";
   position: absolute;
   inset-inline: 0;
-  inset-block-start: -34px;
+  inset-block-start: -42px;
   height: 4px;
   background-color:  var(--link-accent);
   transform: scaleX(0);
@@ -290,7 +290,7 @@ label > span{
   background-size: 100% 100%;
 }
 
-label:has(input){
+label:has(input[name="planet-details"]){
   /* Creates a flat colored background using gradient syntax */
   background-image: linear-gradient(var(--planet-accent), var(--planet-accent));
   background-repeat: no-repeat;
@@ -414,7 +414,9 @@ input[type="radio"]{
   border: 0;
 }
 
-
+.mobile-tabs-container, .menu-button{
+    display: none;
+}
 
 .planet-details{
     display: none;
@@ -432,6 +434,8 @@ input[type="radio"]{
   outline: 2px solid var(--clr-white);
   outline-offset: 3px;
 }
+
+@media (min-width: 751px){
 
 .planet-info-card:has(#overview:checked)
   [data-view="overview"] {
@@ -462,6 +466,8 @@ input[type="radio"]{
   :is([data-image="overview"], [data-image="geology"]) {
   display: block;
 }
+}
+
 
 
 [data-image="geology"]{
@@ -518,14 +524,13 @@ body[data-planet="neptune"] {
         display: flex;
         flex-direction: column;
         width: 100%;
-        border: 2px solid var(--clr-bronze);
+
     }
     
     .planet-info-card{
         
         width: 100%;
         flex-direction: row;
-        border: 2px solid hotpink;
         align-self: stretch;
         justify-content: space-between;
         align-items: center;
@@ -596,10 +601,270 @@ body[data-planet="neptune"] {
     .card > p{
         font-size: 24px;
     }
+}
+.chevron{
+    display: none;
 }   
+
+input[type="checkbox"], .visually-hidden{
+    position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.menu-button{
+    border: none;
+    display: none;
+}
 
 /* mobile */
 
-@media (max-width: 750px)  {
+@media (max-width: 750px){
+
+
+         label:has(input[name="planet-details"]){
+               display: none; 
+         }   
+
+    .primary-navigation, nav{
+            display: none;
+        }
+.header-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        
+
+      main{
+        margin-block: 1rem;
+      }  
+    .mobile-tabs-container{
+        max-width: 750px;
+        align-self: stretch;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 1rem;     
+    }
+
+    .mobile-tabs-container:hover{
+        background: transparent;
+        
+    }
+
+    .mobile-tabs-container > label{
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        font-size: 9px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 275%;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.5);
+        border: none;
+        position: relative;
+    }
+    .mobile-tabs-container > label::after{
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: 40px;
+    height: 4px;
+    background-color:  var(--planet-accent);
+    transform: scaleX(0);
+    }   
+    
+   .mobile-tabs-container>label:hover::after,
+.mobile-tabs-container>label:focus-visible::after,
+.mobile-tabs-container>label:has(input:checked)::after,
+.mobile-tabs-container>label:has(input:focus-visible)::after
+{
+  transform: scaleX(1);
+} 
+
+.planet-info-container:has(#mobile-overview:checked)
+  [data-image="overview"] {
+  display: block;
+}
+
+.planet-info-container:has(#mobile-structure:checked)
+  [data-image="internal"] {
+  display: block;
+}
+
+.planet-info-container:has(#mobile-surface:checked)
+  :is([data-image="overview"], [data-image="geology"]) {
+  display: block;
+}
+
+
+.planet-info-container:has(#mobile-overview:checked)
+  [data-view="overview"] {
+  display: block;
+}
+
+.planet-info-container:has(#mobile-surface:checked)
+  [data-view="surface"] {
+  display: block;
+}
+
+.planet-info-container:has(#mobile-structure:checked)
+  [data-view="structure"] {
+  display: block;
+}
+
+
+.planet-info-container:has(#mobile-overview:checked)
+  [data-view="surface"], [data-view="structure"]{
+  display: none;
+}
+
+.planet-info-container:has(#mobile-surface:checked)
+  [data-view="overview"], [data-view="structure"] {
+  display: none;
+}
+
+.planet-info-container:has(#mobile-structure:checked)
+  [data-view="surface"],[data-view="overview"] {
+  display: none;
+}
+.menu-button{
+    display: block;
+    opacity: 0.5;
+}
+
+nav{
+    background-color: var(--clr-navy);
+    display: none;
+    position: absolute;
+    width: 100vw;
+    top: 100px;
+    left: 0;
+    z-index: 999;
+    padding-bottom: 5rem;
+}
+
+.primary-navigation{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    margin-top: 25px;
+}
+
+
+.nav-link-item::before{
+    content: "";
+    height: 15px;
+    width: 15px;
+    border-radius: 25px;
+    background-color: var(--link-accent);
+    position: relative;
+    z-index: 999;
+    top: -2px;
+    left: 5px;
+    display: block;
+    transform: scaleX(1);
+    
 
 }
+
+.nav-link-item{
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    justify-content: flex-start;
+    position: relative;
+    padding-block: 1rem;
+    
+    
+}
+
+.chevron{
+    position: absolute;
+    right: 15px;
+    display: block;
+}
+
+.menu-toggle:checked ~ nav{
+    display: flex;
+}
+
+.planet-info{
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+}
+
+.planet-info-card{
+    justify-content: center;
+    align-items: center;
+}
+
+.planet-content-container{
+    justify-content: center;
+    align-items: center;
+}
+.planet-details, .planet-name{
+    text-align: center;
+}
+
+.source{
+    align-self: center;
+    justify-content: center;
+}
+
+.planet-infocards-container{
+    flex-direction: column;
+    width: 100%;
+}
+
+.card{
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: clamp(375px, 700px - 15.5vw, 500px);
+    padding: .5rem 1.5rem .5rem 1.5rem;
+}
+.card p{
+    font-size: 28px;
+}
+
+.planet-info-container {
+    min-width: 375px;
+
+}
+
+
+}
+
+/* burger menu stuff */
+
+input[type="checkbox"], .visually-hidden{
+    position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.menu-button{
+    border: none;
+}
+
