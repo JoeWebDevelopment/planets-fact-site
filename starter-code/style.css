@@ -104,6 +104,7 @@ body {
   background-image: url("./assets/background-stars.svg");
   background-color: var(--clr-navy);
   color: var(--clr-grey);
+  padding: 0.5rem;
 }
 
 .page-title{
@@ -122,6 +123,7 @@ body {
     align-items: center;
     width: 100%;
     align-self: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-links{
@@ -202,21 +204,29 @@ main{
     
     display: flex;
     margin-top: 50px;
+    width: 100%;
+    
+    align-items: center;
+    justify-content: center;
 }
 
 .planet-info-container{
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 8rem;
+    gap: 8.5rem;
+    max-width: 1100px;
+    align-self: center;
+    
 }
 
 .two-column{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
-    gap: 3rem;
+    gap: 300px;
+   
     
 }
 
@@ -334,7 +344,9 @@ label:has(input):hover{
 .planet-infocards-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    gap:  30px;
 
 }
 
@@ -408,6 +420,14 @@ input[type="radio"]{
     display: none;
 }
 
+.planet-image > [data-image] {
+  display: none;
+}
+
+.planet-image{
+    position: relative;
+}
+
 .tabs-container > label:has(input:focus-visible) {
   outline: 2px solid var(--clr-white);
   outline-offset: 3px;
@@ -428,6 +448,30 @@ input[type="radio"]{
   display: block;
 }
 
+.planet-info:has(#overview:checked)
+  [data-image="overview"] {
+  display: block;
+}
+
+.planet-info:has(#structure:checked)
+  [data-image="internal"] {
+  display: block;
+}
+
+.planet-info:has(#surface:checked)
+  :is([data-image="overview"], [data-image="geology"]) {
+  display: block;
+}
+
+
+[data-image="geology"]{
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    height: 250px;
+}
 
 body[data-planet="mercury"] {
   --planet-accent: var(--clr-sky);
@@ -461,3 +505,101 @@ body[data-planet="neptune"] {
   --planet-accent: var(--clr-blue);
 }
 
+/* mediaqueries */
+
+@media (max-width: 1120px) {
+    .header-container{
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .two-column{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border: 2px solid var(--clr-bronze);
+    }
+    
+    .planet-info-card{
+        
+        width: 100%;
+        flex-direction: row;
+        border: 2px solid hotpink;
+        align-self: stretch;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1120px;
+        gap: 0px;
+        padding-inline: 1.5rem;
+    }
+    .planet-info-container{
+        width: 100%;
+        width: clamp(688px, 100%, 1120px);
+        padding-inline: 1.5rem;
+        gap: 1.5rem;
+        min-width: 751px;
+    }
+    .planet-content-container{
+        width: 100%;
+    }
+    fieldset{
+        align-self: center;
+        max-width: 281px;
+    }
+
+    label{
+        font-size: 9px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 275%; /* 24.75px */
+    letter-spacing: 2px;
+    max-width: clamp(281px, 250px + 7.5vw, 350px);
+    }
+    .planet-content-container{
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .planet-details{
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 200%; 
+    }
+
+    .source{
+        margin-block: 1.5rem;
+    }
+
+    
+
+    .planet-name{
+        font-size: 48px;
+    }
+
+    .planet-infocards-container{
+        gap: 10px;
+    }
+    .nav-link-item::before{
+        inset-block-start: 46px;
+        
+    }
+    .card{
+        max-width: 164px;
+        height: 88px;
+    }
+    .card-title{
+        font-size: 8px;
+    }
+    .card > p{
+        font-size: 24px;
+    }
+}   
+
+/* mobile */
+
+@media (max-width: 750px)  {
+
+}
