@@ -541,7 +541,6 @@ body[data-planet="neptune"] {
     .planet-info-container{
         width: 100%;
         width: clamp(688px, 100%, 1120px);
-        padding-inline: 1.5rem;
         gap: 1.5rem;
         min-width: 751px;
     }
@@ -627,6 +626,10 @@ input[type="checkbox"], .visually-hidden{
 
 @media (max-width: 750px){
 
+        .planet-image  > img{
+            max-width: calc(100% - 10%);
+            margin: 0 auto;
+        }
 
          label:has(input[name="planet-details"]){
                display: none; 
@@ -778,6 +781,10 @@ nav{
 
 }
 
+.nav-link-item:hover, .nav-link-item:has(> .nav-link:focus-visible){
+    border-color: var(--link-accent);
+}
+
 .nav-link-item{
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     width: 100%;
@@ -828,6 +835,7 @@ nav{
 .planet-infocards-container{
     flex-direction: column;
     width: 100%;
+    padding-inline: .5rem;
 }
 
 .card{
@@ -835,7 +843,7 @@ nav{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    max-width: clamp(375px, 700px - 15.5vw, 500px);
+    max-width: 500px;
     padding: .5rem 1.5rem .5rem 1.5rem;
 }
 .card p{
