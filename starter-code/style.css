@@ -223,9 +223,10 @@ main{
 .two-column{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    gap: 300px;
+    gap: clamp(2rem, 6vw, 6rem);
+    
    
     
 }
@@ -477,6 +478,8 @@ input[type="radio"]{
     inset-inline-start: 50%;
     transform: translateX(-50%);
     height: 250px;
+    width: 40%;
+    height: auto;
 }
 
 body[data-planet="mercury"] {
@@ -542,7 +545,6 @@ body[data-planet="neptune"] {
         width: 100%;
         width: clamp(688px, 100%, 1120px);
         gap: 1.5rem;
-        min-width: 751px;
     }
     .planet-content-container{
         width: 100%;
